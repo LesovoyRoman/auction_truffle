@@ -5,5 +5,5 @@ starter proj on truffle (solidity based on) &amp; figuring out this stuff
 - truffle develop
 - truffle migrate
 
-# Working
+# Tests
 - npm run test
