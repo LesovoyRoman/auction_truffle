@@ -1,0 +1,29 @@
+{
+  "name": "auction_truffle",
+  "version": "1.0.0",
+  "description": "truffle, test, solidity contract",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "ganache-cli": "^6.1.8",
+    "web3": "^1.0.0-beta.36"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  },
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LesovoyRoman/auction_truffle.git"
+  },
+  "author": "LesovoyRoman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LesovoyRoman/auction_truffle/issues"
+  },
+  "homepage": "https://github.com/LesovoyRoman/auction_truffle#readme"
+}
