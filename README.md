@@ -1,5 +1,4 @@
-# auction_truffle
-starter proj on truffle (solidity based on) &amp; figuring out this stuff
+# 'smart' contracts -> solidity + truffle & unit tests (mocha, ganache-cli) with web3;
 # Usage
 - npm install -g truffle
 - truffle develop
