@@ -1,3 +1,9 @@
+const assert = require('assert');
+
+const ganache = require('ganache-cli');
+
+const Web3 = require('web3');
+
 const web3 = new Web3(ganache.provider());
 
 const json = require('./../build/contracts/Auction.json');
@@ -38,7 +44,7 @@ describe('Freelancer', () => {
 
         try {
 
-            await auction.methods.setFreelancer("Name", "Surname", 100, 100, "Service").send({ from: nonowner });
+            await freelancer.methods.setFreelancer("Name", "Surname", 100, 100, "Service").send({ from: nonowner });
 
             assert(false);
 
@@ -56,7 +62,7 @@ describe('Freelancer', () => {
 
         try {
 
-            await auction.methods.setAssets(100, 100, "Service").send({ from: nonowner });
+            await freelancer.methods.setAssets(100, 100, "Service").send({ from: nonowner });
 
             assert(false);
 
@@ -80,7 +86,7 @@ describe('Freelancer', () => {
 
         try {
 
-            await auction.methods.myAccount().send({ from: nonowner });
+            await freelancer.methods.myAccount().send({ from: nonowner });
 
             assert(false);
 
