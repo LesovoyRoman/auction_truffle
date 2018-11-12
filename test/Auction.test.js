@@ -1,12 +1,14 @@
 const assert = require('assert');
 
 const ganache = require('ganache-cli');
-
+const options = { gasLimit: 3000000 };
 const Web3 = require('web3');
+const server = ganache.server(options);
+const provider = ganache.provider(options);
 
-const web3 = new Web3(ganache.provider());
+const web3 = new Web3(provider);
 
-const json = require('./../build/contracts/Auction.json');
+let json = require('./../build/contracts/Auction.json');
 
 let accounts;
 
@@ -28,7 +30,7 @@ beforeEach(async () => {
 
         .deploy({ data: bytecode })
 
-        .send({ from: manager, gas: '1000000' });
+        .send({ from: manager, gas: '3000000' });
 });
 
 describe('Auction', () => {
