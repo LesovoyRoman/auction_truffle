@@ -45,7 +45,7 @@ contract GetSetFundsMiner {
     function getMinerFunds() minerNotNull public view returns (uint256) {
         return miner.balance;
     }
-    
+
     function getValues() public view returns (uint256[3]){
         return values;
     }
