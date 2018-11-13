@@ -2,7 +2,7 @@ pragma solidity ^0.4.24;
 
 contract Iterator {
 
-    address creator;
+    address public creator;
     uint8[10] integers;
 
     constructor() public {
