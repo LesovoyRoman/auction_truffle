@@ -4,7 +4,7 @@ contract Ownable {
     address new_address_set;
     address public owner;
 
-    constructor() payable {
+    constructor() public payable {
         owner = msg.sender;
     }
 
@@ -21,26 +21,41 @@ contract Ownable {
     }
 
     // prepare to set new address
-    function setAnotherOwner(address new_address) onlyOwner {
+    function setAnotherOwner(address new_address) public onlyOwner {
         new_address_set = new_address;
     }
 
     // accepting the status of new owner
     // possible only from account which is set
-    function acceptNewAddress() onlyNewAddress {
+    function acceptNewAddress() public onlyNewAddress {
         owner = new_address_set;
     }
 }
 
 contract Destructible is Ownable {
+    constructor() public payable {}
 
-    constructor() payable {}
-
-    function destroy() onlyOwner {
+    function destroy() public onlyOwner {
         selfdestruct(owner);
     }
 
-    function destroyAndSend(address _recipient) onlyOwner {
+    function destroyAndSend(address _recipient) public onlyOwner {
         selfdestruct(_recipient);
+    }
+}
+
+contract BankAccount is Ownable, Destructible {
+    modifier enoughFunds() {
+        require(msg.sender.balance > msg.value);
+        _;
+    }
+
+    // store money
+    function store() public payable enoughFunds {}
+
+    // get money back
+    function withdraw(uint amount) public onlyOwner {
+        require(address(this).balance >= amount);
+        msg.sender.transfer(amount);
     }
 }
