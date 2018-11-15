@@ -31,3 +31,16 @@ contract Ownable {
         owner = new_address_set;
     }
 }
+
+contract Destructible is Ownable {
+
+    constructor() payable {}
+
+    function destroy() onlyOwner {
+        selfdestruct(owner);
+    }
+
+    function destroyAndSend(address _recipient) onlyOwner {
+        selfdestruct(_recipient);
+    }
+}
